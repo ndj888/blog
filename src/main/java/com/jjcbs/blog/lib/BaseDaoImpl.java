@@ -39,7 +39,7 @@ public abstract class BaseDaoImpl implements BaseDaoInterface{
     }
 
     public Object findById(Object entity , int id) throws Exception {
-        String hql = String.format("form %s where id = %d" , entity.getClass() , id);
+        String hql = String.format("from %s where id = %d" , entity.getClass().getName() , id);
         return sessionFactory.getCurrentSession().createQuery(hql).list().get(0);
     }
 }
