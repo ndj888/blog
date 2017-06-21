@@ -2,10 +2,9 @@ package com.jjcbs.blog.dao.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
- * Created by Administrator on 2017/6/19 0019.
+ * Created by Administrator on 2017/6/21 0021.
  *
  * @author jjc
  */
@@ -17,14 +16,9 @@ public class BlogArticle {
     private String subhead;
     private String contentFile;
     private Integer clsId;
-    @Temporal(TemporalType.DATE)
-    private Date updateTime;
-    @Temporal(TemporalType.DATE)
-    private Date createTime;
+    private Timestamp updateTime;
+    private Timestamp createTime;
     private int userId;
-    @OneToOne
-    @JoinColumn(name = "id")
-    private BlogClass blogClass;
 
     @Id
     @Column(name = "id")
@@ -137,7 +131,4 @@ public class BlogArticle {
         result = 31 * result + userId;
         return result;
     }
-
-
-
 }

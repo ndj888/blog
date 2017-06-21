@@ -1,11 +1,11 @@
 package com.jjcbs.blog.dao.impl;
 
-import com.jjcbs.blog.dao.entity.BlogArticle;
 import com.jjcbs.blog.lib.BaseDaoImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Administrator on 2017/6/19 0019.
@@ -13,6 +13,8 @@ import java.util.Map;
  * @author jjc
  */
 
+@Repository
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class ArticleDaoImpl extends BaseDaoImpl{
 
 
@@ -22,6 +24,6 @@ public class ArticleDaoImpl extends BaseDaoImpl{
      * @return
      */
     public List getTopList(Integer limit){
-        return this.session.createQuery("from BlogArticle").setFirstResult(0).setMaxResults(limit).list();
+        return sessionFactory.getCurrentSession().createQuery("from BlogArticle").setCacheable(true).setFirstResult(0).setMaxResults(limit).list();
     }
 }

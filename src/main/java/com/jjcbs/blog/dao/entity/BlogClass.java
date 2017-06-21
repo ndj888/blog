@@ -2,10 +2,9 @@ package com.jjcbs.blog.dao.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
- * Created by Administrator on 2017/6/19 0019.
+ * Created by Administrator on 2017/6/21 0021.
  *
  * @author jjc
  */
@@ -15,10 +14,8 @@ public class BlogClass {
     private int id;
     private String name;
     private String descontent;
-    @Temporal(TemporalType.DATE)
-    private Date updateTime;
-    @Temporal(TemporalType.DATE)
-    private Date createTime;
+    private Timestamp updateTime;
+    private Timestamp createTime;
 
     @Id
     @Column(name = "id")
