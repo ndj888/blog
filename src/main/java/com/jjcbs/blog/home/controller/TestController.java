@@ -41,4 +41,9 @@ public class TestController {
         }
         return "userName is " + userName;
     }
+
+    @GetMapping("/detail")
+    public String detail(){
+        return "detail";
+    }
 }
