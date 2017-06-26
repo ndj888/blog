@@ -46,4 +46,9 @@ public class TestController {
     public String detail(){
         return "detail";
     }
+
+    @GetMapping("/hi")
+    public @ResponseBody String hi(){
+        return "hi world";
+    }
 }

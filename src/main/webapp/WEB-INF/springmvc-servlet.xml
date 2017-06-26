@@ -36,6 +36,7 @@
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -48,4 +49,7 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
+    <!--忽略静态文件-->
+    <mvc:resources location="/static/" mapping="/static/**"/>
 </beans>

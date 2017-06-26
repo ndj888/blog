@@ -1,10 +1,9 @@
 package com.jjcbs.blog.dao.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
- * Created by Administrator on 2017/6/21 0021.
+ * Created by Administrator on 2017/6/26 0026.
  *
  * @author jjc
  */
@@ -14,8 +13,8 @@ public class BlogUser {
     private int id;
     private String userName;
     private String userPasswd;
-    private Timestamp createTime;
-    private Timestamp updateTime;
+    private Integer createTime;
+    private Integer updateTime;
     private String userNick;
 
     @Id
@@ -50,21 +49,21 @@ public class BlogUser {
 
     @Basic
     @Column(name = "create_time")
-    public Timestamp getCreateTime() {
+    public Integer getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Integer createTime) {
         this.createTime = createTime;
     }
 
     @Basic
     @Column(name = "update_time")
-    public Timestamp getUpdateTime() {
+    public Integer getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Integer updateTime) {
         this.updateTime = updateTime;
     }
 
@@ -83,14 +82,14 @@ public class BlogUser {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BlogUser blogUser = (BlogUser) o;
+        BlogUser user = (BlogUser) o;
 
-        if (id != blogUser.id) return false;
-        if (userName != null ? !userName.equals(blogUser.userName) : blogUser.userName != null) return false;
-        if (userPasswd != null ? !userPasswd.equals(blogUser.userPasswd) : blogUser.userPasswd != null) return false;
-        if (createTime != null ? !createTime.equals(blogUser.createTime) : blogUser.createTime != null) return false;
-        if (updateTime != null ? !updateTime.equals(blogUser.updateTime) : blogUser.updateTime != null) return false;
-        if (userNick != null ? !userNick.equals(blogUser.userNick) : blogUser.userNick != null) return false;
+        if (id != user.id) return false;
+        if (userName != null ? !userName.equals(user.userName) : user.userName != null) return false;
+        if (userPasswd != null ? !userPasswd.equals(user.userPasswd) : user.userPasswd != null) return false;
+        if (createTime != null ? !createTime.equals(user.createTime) : user.createTime != null) return false;
+        if (updateTime != null ? !updateTime.equals(user.updateTime) : user.updateTime != null) return false;
+        if (userNick != null ? !userNick.equals(user.userNick) : user.userNick != null) return false;
 
         return true;
     }

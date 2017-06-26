@@ -23,8 +23,8 @@
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:/jdbc.properties</value>
-                <value>classpath:/web.properties</value>
+                <value>classpath:/conf/jdbc.properties</value>
+                <value>classpath:/conf/web.properties</value>
             </list>
         </property>
     </bean>
@@ -56,6 +56,10 @@
                 hibernate.cache.use_query_cache=${hibernate.querycache}
                 hibernate.cache.region.factory_class=${hibernate.classcache}
             </value>
+            <props>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/myblog</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+            </props>
         </property>
     </bean>
 

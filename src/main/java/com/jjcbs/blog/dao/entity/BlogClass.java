@@ -1,10 +1,9 @@
 package com.jjcbs.blog.dao.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
- * Created by Administrator on 2017/6/21 0021.
+ * Created by Administrator on 2017/6/26 0026.
  *
  * @author jjc
  */
@@ -14,8 +13,8 @@ public class BlogClass {
     private int id;
     private String name;
     private String descontent;
-    private Timestamp updateTime;
-    private Timestamp createTime;
+    private Integer updateTime;
+    private Integer createTime;
 
     @Id
     @Column(name = "id")
@@ -49,21 +48,21 @@ public class BlogClass {
 
     @Basic
     @Column(name = "update_time")
-    public Timestamp getUpdateTime() {
+    public Integer getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Timestamp updateTime) {
+    public void setUpdateTime(Integer updateTime) {
         this.updateTime = updateTime;
     }
 
     @Basic
     @Column(name = "create_time")
-    public Timestamp getCreateTime() {
+    public Integer getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Timestamp createTime) {
+    public void setCreateTime(Integer createTime) {
         this.createTime = createTime;
     }
 
