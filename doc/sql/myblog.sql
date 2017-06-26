@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-06-21 21:17:43
+Date: 2017-06-26 17:46:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,10 @@ CREATE TABLE `blog_article` (
   `cls_id` int(11) DEFAULT NULL COMMENT '分类id',
   `update_time` int(11) DEFAULT NULL COMMENT '更新时间',
   `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL COMMENT '内容发布者id',
+  `browse_time` int(11) NOT NULL DEFAULT '0' COMMENT '浏览次数',
+  `hot_order` tinyint(3) NOT NULL DEFAULT '0' COMMENT '热门推荐排序',
+  `is_hot` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否热门推荐',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -50,6 +53,27 @@ CREATE TABLE `blog_class` (
 
 -- ----------------------------
 -- Records of blog_class
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for blog_config
+-- ----------------------------
+DROP TABLE IF EXISTS `blog_config`;
+CREATE TABLE `blog_config` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `key` varchar(255) NOT NULL,
+  `val` varchar(255) NOT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `remark` varchar(255) NOT NULL COMMENT '备注',
+  `title` varchar(255) NOT NULL COMMENT '配置项title',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ukey` (`key`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of blog_config
 -- ----------------------------
 
 -- ----------------------------
