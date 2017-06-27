@@ -3,7 +3,7 @@ package com.jjcbs.blog.dao.entity;
 import javax.persistence.*;
 
 /**
- * Created by Administrator on 2017/6/26 0026.
+ * Created by Administrator on 2017/6/27 0027.
  *
  * @author jjc
  */

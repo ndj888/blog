@@ -1,7 +1,9 @@
 package com.jjcbs.blog.home.controller;
 
+import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.dao.entity.BlogUser;
 import com.jjcbs.blog.dao.impl.ArticleDaoImpl;
+import com.jjcbs.blog.dao.impl.ConfigDaoImpl;
 import com.jjcbs.blog.dao.impl.UserDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,8 @@ public class TestController {
     private ArticleDaoImpl articleDao;
     @Autowired
     private UserDaoImpl userDao;
+    @Autowired
+    private ConfigDaoImpl configDao;
 
     @GetMapping("/getList")
     public @ResponseBody
@@ -50,5 +54,11 @@ public class TestController {
     @GetMapping("/hi")
     public @ResponseBody String hi(){
         return "hi world";
+    }
+
+    @GetMapping("/setConfig")
+    public @ResponseBody String setConfig(){
+        configDao.put("test" , "test123");
+        return "succeed";
     }
 }

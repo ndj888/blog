@@ -2,9 +2,13 @@ package com.jjcbs.blog.lib;
 
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 
 /**
@@ -18,28 +22,38 @@ public abstract class BaseDaoImpl implements BaseDaoInterface{
     @Autowired
     protected SessionFactory sessionFactory;
     protected static Logger logger = Logger.getLogger("DaoImpl");
+    protected Session session;
 
-
-
-    public void create(Object entity) throws Exception {
-        try{
-            sessionFactory.getCurrentSession().save(entity);
-        }catch (Exception e){
-            logger.error("DaoImpl create error");
-            throw new Exception("DaoImpl create error");
+    @PostConstruct
+    public void init(){
+        try {
+            session = sessionFactory.getCurrentSession();
+        } catch (HibernateException e) {
+            session = sessionFactory.openSession();
         }
+    }
+    public void create(Object entity) throws Exception {
+        session.save(entity);
+        session.flush();
     }
 
     public void delete(Object entity) throws Exception {
-        sessionFactory.getCurrentSession().delete(entity);
+        session.delete(entity);
+        session.flush();
     }
 
     public void update(Object entity) throws Exception {
-        sessionFactory.getCurrentSession().update(entity);
+        session.update(entity);
+        session.flush();
     }
 
     public Object findById(Object entity , int id) throws Exception {
         String hql = String.format("from %s where id = %d" , entity.getClass().getName() , id);
-        return sessionFactory.getCurrentSession().createQuery(hql).list().get(0);
+        return session.createQuery(hql).list().get(0);
+    }
+
+    public void createOrUpdate(Object entity) throws Exception {
+        session.saveOrUpdate(entity);
+        session.flush();
     }
 }

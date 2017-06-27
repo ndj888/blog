@@ -47,20 +47,18 @@
             </list>
         </property>
         <property name="hibernateProperties">
-            <value>
-                hibernate.dialect=${hibernate.dialect}
-                hibernate.hbm2ddl.auto=${hiberante.hbm2ddl}
-                hibernate.show_sql=${hibernate.showsql}
-                hibernate.format_sql=${hibernate.formatsql}
-                hibernate.cache.use_second_level_cache=${hibernate.secondlevelcache}
-                hibernate.cache.use_query_cache=${hibernate.querycache}
-                hibernate.cache.region.factory_class=${hibernate.classcache}
-            </value>
             <props>
                 <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/myblog</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
             </props>
         </property>
     </bean>
+
+    <!-- 定义事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <!-- 支持  @Transactional 标记 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

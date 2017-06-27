@@ -14,6 +14,7 @@ public interface BaseDaoInterface {
     void create(Object entity) throws Exception;
     void delete(Object entity) throws Exception;
     void update(Object entity) throws Exception;
+    void createOrUpdate(Object entity) throws Exception;
     Object findById(Object entity , int id) throws Exception;
 
 }
