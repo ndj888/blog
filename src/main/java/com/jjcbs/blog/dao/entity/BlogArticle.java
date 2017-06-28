@@ -1,6 +1,8 @@
 package com.jjcbs.blog.dao.entity;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2017/6/28 0028.
@@ -15,12 +17,15 @@ public class BlogArticle {
     private String subhead;
     private String contentFile;
     private Integer clsId;
-    private Integer updateTime;
-    private Integer createTime;
+    @Temporal(TemporalType.DATE)
+    private Date updateTime;
+    @Temporal(TemporalType.DATE)
+    private Date createTime;
     private int userId;
     private int browseTime;
     private byte hotOrder;
     private byte isHot;
+    private String img;
 
     @Id
     @Column(name = "id")
@@ -74,21 +79,21 @@ public class BlogArticle {
 
     @Basic
     @Column(name = "update_time")
-    public Integer getUpdateTime() {
+    public Date getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Integer updateTime) {
+    public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
 
     @Basic
     @Column(name = "create_time")
-    public Integer getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Integer createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
@@ -132,6 +137,16 @@ public class BlogArticle {
         this.isHot = isHot;
     }
 
+    @Basic
+    @Column(name = "img")
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -150,6 +165,7 @@ public class BlogArticle {
         if (clsId != null ? !clsId.equals(that.clsId) : that.clsId != null) return false;
         if (updateTime != null ? !updateTime.equals(that.updateTime) : that.updateTime != null) return false;
         if (createTime != null ? !createTime.equals(that.createTime) : that.createTime != null) return false;
+        if (img != null ? !img.equals(that.img) : that.img != null) return false;
 
         return true;
     }
@@ -167,6 +183,7 @@ public class BlogArticle {
         result = 31 * result + browseTime;
         result = 31 * result + (int) hotOrder;
         result = 31 * result + (int) isHot;
+        result = 31 * result + (img != null ? img.hashCode() : 0);
         return result;
     }
 }

@@ -31,7 +31,7 @@ public class TestController {
     @GetMapping("/getList")
     public @ResponseBody
     List getList(){
-        return articleDao.getTopList(10);
+        return articleDao.getHotTopList("updateTime desc" , 10);
     }
     @GetMapping("/getUserName")
     public @ResponseBody
