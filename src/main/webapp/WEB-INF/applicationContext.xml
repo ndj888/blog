@@ -50,9 +50,11 @@
             <props>
                 <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/myblog</prop>
                 <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="current_session_context_class">thread</prop>
             </props>
         </property>
-    </bean>
+
+</bean>
 
     <!-- 定义事务管理器 -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
