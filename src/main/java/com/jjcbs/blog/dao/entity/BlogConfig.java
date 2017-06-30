@@ -1,7 +1,11 @@
 package com.jjcbs.blog.dao.entity;
 
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -11,6 +15,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "blog_config", schema = "myblog", catalog = "")
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class BlogConfig {
     private int id;
     private String configKey;

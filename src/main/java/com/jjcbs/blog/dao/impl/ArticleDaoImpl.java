@@ -1,10 +1,7 @@
 package com.jjcbs.blog.dao.impl;
 
-import com.jjcbs.blog.dao.entity.BlogArticle;
 import com.jjcbs.blog.dao.interfaces.ArticleDaoInterface;
 import com.jjcbs.blog.lib.BaseDaoImpl;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,11 +13,11 @@ import java.util.List;
  */
 
 @Repository
-@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
 
     public List getHotTopList(String orderBy, int limit) {
         return session.createQuery("from BlogArticle where isHot = 1 order by :order_by ")
+                .setCacheable(true)
                 .setString("order_by" , orderBy)
                 .setFirstResult(0)
                 .setMaxResults(limit)

@@ -59,12 +59,12 @@ public class ArticleDaoImplTest extends BaseUnit{
         Assert.assertEquals(5 , res.size());
     }
 
-    /**
-     * 清除测试使用的资源
-     */
-    @After
-    public void free(){
-        Session session = sessionFactory.openSession();
-        session.createQuery("delete from BlogArticle ").setFirstResult(0).setMaxResults(MAXLEN).executeUpdate();
-    }
+//    /**
+//     * 清除测试使用的资源
+//     */
+//    @After
+//    public void free(){
+//        Session session = sessionFactory.openSession();
+//        session.createQuery("delete from BlogArticle ").setFirstResult(0).setMaxResults(MAXLEN).executeUpdate();
+//    }
 }

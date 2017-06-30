@@ -6,9 +6,13 @@ import com.jjcbs.blog.test.lib.BaseUnit;
 import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/6/27 0027.
@@ -40,8 +44,16 @@ public class ConfigDaoImplTest extends BaseUnit{
         Assert.assertEquals(blogConfig.getConfigVal() , upStr);
     }
 
+
     @Test
-    public void cdel(){
+    public void cGetAllConfig(){
+        Map<String , BlogConfig> res = configDao.getAll(null);
+        Assert.assertFalse(res.isEmpty());
+        Assert.assertFalse(res.get("kel") == null);
+    }
+
+    @Test
+    public void ddel(){
         try{
             configDao.del("kel");
         }catch (Exception e){

@@ -11,6 +11,16 @@
     <context:component-scan base-package="com.jjcbs.blog"/>
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
+    <!--加载相关配置文件-->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:/conf/jdbc.properties</value>
+                <value>classpath:/conf/web.properties</value>
+            </list>
+        </property>
+    </bean>
 
     <!--视图配置-->
     <bean id="templateResolver"
@@ -29,6 +39,8 @@
     <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine" />
         <property name="characterEncoding" value="UTF-8"/>
+        <property name="cache" value="true"/>
+        <property name="cacheLimit" value="1800"/>
     </bean>
 
     <!-- 事务配置 -->

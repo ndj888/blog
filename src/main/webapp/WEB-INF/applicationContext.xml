@@ -46,11 +46,17 @@
                 <value>${hibernate.scanpackages}</value>
             </list>
         </property>
+        <!--hibernateProperties-->
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/myblog</prop>
-                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
-                <prop key="current_session_context_class">thread</prop>
+                <prop key="current_session_context_class">${hibernate.current_session_context_class}</prop>
+                <prop key="hibernate.show_sql">${hibernate.showsql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.formatsql}</prop>
+                <prop key="cache.use_structured_entries">${hibernate.secondlevelcache}</prop>
+                <prop key="hibernate.cache.use_query_cache">${hibernate.querycache}</prop>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.cache.region.factory_class">${hibernate.classcache}</prop>
+                <prop key="hibernate.cache.use_second_level_cache">${hibernate.secondlevelcache}</prop>
             </props>
         </property>
 

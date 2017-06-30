@@ -8,6 +8,8 @@ package com.jjcbs.blog.dao.interfaces;
 
 import com.jjcbs.blog.dao.entity.BlogConfig;
 
+import java.util.Map;
+
 /**
  * Config配置项接口
  */
@@ -33,5 +35,12 @@ public interface ConfigDaoInterface {
      * @throws Exception
      */
     void del(String key) throws Exception;
+
+    /**
+     * 获取所有配置项
+     * @param limit
+     * @return
+     */
+    Map<String , BlogConfig> getAll(Integer limit);
 
 }

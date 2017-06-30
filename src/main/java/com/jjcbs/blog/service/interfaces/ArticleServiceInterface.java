@@ -19,18 +19,5 @@ public interface ArticleServiceInterface {
      */
     String uploadImg(MultipartFile file);
 
-    /**
-     * 发布文章
-     * @return
-     */
-    boolean release(BlogArticle);
 
-    /**
-     * 移动文章分类
-     * @param cls_id
-     * @return
-     */
-    boolean moveClass(String cls_id);
-
-    BlogArticle
 }

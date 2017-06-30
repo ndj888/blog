@@ -6,6 +6,10 @@ import com.jjcbs.blog.lib.BaseDaoImpl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * Created by Administrator on 2017/6/26 0026.
@@ -42,5 +46,20 @@ public class ConfigDaoImpl extends BaseDaoImpl implements ConfigDaoInterface {
 
     public void del(String key) throws Exception {
         delete(get(key));
+    }
+
+    public Map<String, BlogConfig> getAll(Integer limit) {
+        limit = limit == null ? 100 : limit;
+        Map<String , BlogConfig> blogConfigMap = new HashMap<String, BlogConfig>();
+        List res =  session.createQuery("from BlogConfig ")
+                .setCacheable(true)
+                .setFirstResult(0)
+                .setMaxResults(limit)
+                .list();
+        for ( Object object : res){
+            BlogConfig temp = (BlogConfig) object;
+            blogConfigMap.put(temp.getConfigKey() , temp);
+        }
+        return blogConfigMap;
     }
 }
