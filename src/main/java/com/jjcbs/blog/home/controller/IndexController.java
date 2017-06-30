@@ -27,6 +27,7 @@ public class IndexController extends BaseController{
     @GetMapping("/index")
     public String index(Model model){
         model.addAttribute("articleList" , articleService.articleDao.getHotTopList("hotOrder desc , createTime des" , 5));
+        model.addAllAttributes(configService.configDao.getAll(null));
         return "home/index";
     }
 }
