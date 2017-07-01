@@ -1,0 +1,75 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head data-th-fragment="comHead (links , title)">
+    <meta charset="utf-8">
+    <title th:replace="${title}">黑色Html5响应式个人博客模板――主题《如影随形》</title>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <th:block th:replace="${links}"/>
+    <link href="/static/css/media.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="/static/js/modernizr.js"></script>
+    <![endif]-->
+</head>
+
+
+<aside th:fragment="content(isList)">
+    <div class="avatar"><a href="about.html"><span th:text="'关于' + ${nickName.configVal}">关于杨青</span></a></div>
+    <div class="topspaceinfo">
+        <h1 th:text="${subTitle1.configVal}">执子之手，与子偕老</h1>
+        <p th:text="${subTitle2.configVal}">于千万人之中，我遇见了我所遇见的人....</p>
+    </div>
+    <div class="about_c">
+        <p th:text="${nickNameFull.configVal}">网名：DanceSmile | 即步非烟</p>
+        <p th:text="${job.configVal}">职业：Web前端设计师、网页设计 </p>
+        <p th:text="${address.configVal}">籍贯：四川省―成都市</p>
+        <p>电话：<span th:text="${mobile.configVal}"></span></p>
+        <p>邮箱：<span th:text="${email.configVal}"></span></p>
+    </div>
+    <th:block th:if="${isList}">
+        <!--<div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>-->
+        <div class="tj_news">
+            <h2>
+                <p class="tj_t1">最新文章</p>
+            </h2>
+            <ul>
+                <li th:each="news : ${newsList}"><a href="/" th:text="${news.title}">犯错了怎么办？</a></li>
+            </ul>
+            <h2>
+                <p class="tj_t2">推荐文章</p>
+            </h2>
+            <ul>
+                <li th:each="hInfo:${hotArticleList}"><a href="/" th:text="${hInfo.title}">犯错了怎么办？</a></li>
+            </ul>
+        </div>
+        <div class="links">
+            <h2>
+                <p>友情链接</p>
+            </h2>
+            <ul th:each="fl:${friendLinks}">
+                <li><a href="/" th:text="${fl.title}" th:href="${fl.href}">杨青个人博客</a></li>
+            </ul>
+        </div>
+    </th:block>
+    <div class="copyright">
+        <ul>
+            <p> Design by <a href="/" th:text="${copyright.configVal}">DanceSmile</a></p>
+            <p th:text="${putNo.configVal}">蜀ICP备11002373号-1</p>
+            </p>
+        </ul>
+    </div>
+</aside>
+
+<th:block th:fragment="footer">
+    <script src="/static/js/silder.js"></script>
+    <div class="clear"></div>
+    <!-- 清除浮动 -->
+</th:block>
+
+
+<header th:fragment="header_content">
+    <h1 th:text="${nickName.configVal}">如影随形</h1>
+    <h2 th:text="${signature.configVal}">影子是一个会撒谎的精灵，它在虚空中流浪和等待被发现之间;在存在与不存在之间....</h2>
+    <div class="logo"><a href="/"></a></div>
+    <nav id="topnav"><a href="index.html">首页</a><a href="about.html" th:href="@{/about.html}">关于我</a><a href="newlist.html">慢生活</a><a href="share.html">模板分享</a><a href="new.html">模板主题</a></nav>
+</header>

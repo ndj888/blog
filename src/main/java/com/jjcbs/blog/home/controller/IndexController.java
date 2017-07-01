@@ -1,9 +1,6 @@
 package com.jjcbs.blog.home.controller;
 
-import com.jjcbs.blog.lib.BaseController;
-import com.jjcbs.blog.service.impl.ArticleServiceImpl;
-import com.jjcbs.blog.service.impl.ConfigServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jjcbs.blog.lib.BaseHomeController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,19 +13,17 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 
 @Controller
-public class IndexController extends BaseController{
-
-    @Autowired
-    private ArticleServiceImpl articleService;
-    @Autowired
-    private ConfigServiceImpl configService;
+public class IndexController extends BaseHomeController{
 
 
     @GetMapping("/index")
     public String index(Model model){
         model.addAttribute("articleList" , articleService.articleDao.getHotTopList("hotOrder desc , createTime des" , 5));
-        model.addAllAttributes(configService.configDao.getAll(null));
-        model.addAttribute("friendLinks" ,configService.getFriendLinks());
         return "home/index";
+    }
+
+    @GetMapping("/about")
+    public String aboutMe(){
+        return "home/about";
     }
 }

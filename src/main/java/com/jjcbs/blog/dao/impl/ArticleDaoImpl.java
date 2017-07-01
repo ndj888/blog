@@ -17,6 +17,7 @@ public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
 
     public List getHotTopList(String orderBy, int limit) {
         return entityManager.createQuery("from BlogArticle where isHot = 1 order by :order_by ")
+                .setHint( SET_CACHE , "true")
                 .setParameter("order_by" , orderBy)
                 .setFirstResult(0)
                 .setMaxResults(limit)
@@ -25,6 +26,7 @@ public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
 
     public List getNewTopList(int limit) {
         return session.createQuery("from BlogArticle order by updateTime desc ")
+                .setCacheable(true)
                 .setFirstResult(0)
                 .setMaxResults(limit)
                 .list();

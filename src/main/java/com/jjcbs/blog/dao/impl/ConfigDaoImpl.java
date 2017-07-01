@@ -37,7 +37,7 @@ public class ConfigDaoImpl extends BaseDaoImpl implements ConfigDaoInterface {
     public BlogConfig get(String key) {
         String dql = "from BlogConfig as c where configKey = :keys";
         try{
-            return (BlogConfig) (session.createQuery(dql).setString("keys" , key).list().get(0));
+            return (BlogConfig) (session.createQuery(dql).setCacheable(true).setString("keys" , key).list().get(0));
         }catch (Exception e){
             logger.error("通过key:" + key + " 找不到实体");
         }

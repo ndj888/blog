@@ -23,6 +23,7 @@ public abstract class BaseDaoImpl implements BaseDaoInterface{
     protected EntityManager entityManager;
     protected static Logger logger = Logger.getLogger("DaoImpl");
     protected Session session;
+    protected static final String SET_CACHE = "org.hibernate.cacheable";
 
     @PostConstruct
     public void init(){
