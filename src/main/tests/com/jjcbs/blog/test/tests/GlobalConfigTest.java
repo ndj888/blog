@@ -6,7 +6,6 @@ package com.jjcbs.blog.test.tests;
  * @author jjc
  */
 
-import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.test.lib.BaseUnit;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

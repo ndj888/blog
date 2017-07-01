@@ -1,9 +1,6 @@
 package com.jjcbs.blog.service.interfaces;
 
-import com.jjcbs.blog.dao.entity.BlogArticle;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
 
 /**
  * Created by Administrator on 2017/6/28 0028.

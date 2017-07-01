@@ -1,6 +1,5 @@
 package com.jjcbs.blog.test.tests;
 
-import com.jjcbs.blog.dao.entity.BlogArticle;
 import com.jjcbs.blog.dao.impl.ArticleDaoImpl;
 import com.jjcbs.blog.test.lib.BaseUnit;
 import org.hibernate.Session;
@@ -9,7 +8,6 @@ import org.junit.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**

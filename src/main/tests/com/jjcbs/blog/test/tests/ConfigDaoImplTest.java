@@ -1,6 +1,5 @@
 package com.jjcbs.blog.test.tests;
 
-import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.dao.impl.ConfigDaoImpl;
 import com.jjcbs.blog.test.lib.BaseUnit;
 import org.hibernate.SessionFactory;
@@ -11,8 +10,6 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

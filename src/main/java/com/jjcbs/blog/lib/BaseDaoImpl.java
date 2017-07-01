@@ -2,14 +2,13 @@ package com.jjcbs.blog.lib;
 
 
 import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 /**
  * Created by Administrator on 2017/6/19 0019.
@@ -20,16 +19,18 @@ import javax.annotation.PostConstruct;
 public abstract class BaseDaoImpl implements BaseDaoInterface{
 
     @Autowired
-    protected SessionFactory sessionFactory;
+    protected EntityManagerFactory entityManagerFactory;
+    protected EntityManager entityManager;
     protected static Logger logger = Logger.getLogger("DaoImpl");
     protected Session session;
 
     @PostConstruct
     public void init(){
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (HibernateException e) {
-            session = sessionFactory.openSession();
+        entityManager = entityManagerFactory.createEntityManager();
+        try{
+            session = entityManager.unwrap(Session.class);
+        }catch (Exception e){
+            logger.error(e.getMessage() + "获取session error");
         }
     }
     public void create(Object entity) throws Exception {

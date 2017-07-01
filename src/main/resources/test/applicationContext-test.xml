@@ -40,15 +40,17 @@
         <property name="dataSource" ref="mySourceData"/>
     </bean>
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="mySourceData"/>
         <property name="packagesToScan">
             <list>
                 <value>${hibernate.scanpackages}</value>
             </list>
         </property>
-
-        <property name="hibernateProperties">
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+        <property name="jpaProperties">
             <props>
                 <prop key="current_session_context_class">${hibernate.current_session_context_class}</prop>
                 <prop key="hibernate.show_sql">${hibernate.showsql}</prop>
@@ -60,10 +62,11 @@
                 <prop key="hibernate.cache.use_second_level_cache">${hibernate.secondlevelcache}</prop>
             </props>
         </property>
+
     </bean>
 
     <!-- 定义事务管理器 -->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 </beans>

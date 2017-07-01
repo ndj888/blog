@@ -28,6 +28,7 @@ public class IndexController extends BaseController{
     public String index(Model model){
         model.addAttribute("articleList" , articleService.articleDao.getHotTopList("hotOrder desc , createTime des" , 5));
         model.addAllAttributes(configService.configDao.getAll(null));
+        model.addAttribute("friendLinks" ,configService.getFriendLinks());
         return "home/index";
     }
 }

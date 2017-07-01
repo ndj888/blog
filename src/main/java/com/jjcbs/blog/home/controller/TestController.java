@@ -1,13 +1,10 @@
 package com.jjcbs.blog.home.controller;
 
-import com.jjcbs.blog.dao.entity.BlogConfig;
-import com.jjcbs.blog.dao.entity.BlogUser;
 import com.jjcbs.blog.dao.impl.ArticleDaoImpl;
 import com.jjcbs.blog.dao.impl.ConfigDaoImpl;
 import com.jjcbs.blog.dao.impl.UserDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 

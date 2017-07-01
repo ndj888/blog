@@ -16,15 +16,11 @@
     </servlet-mapping>
 
     <filter>
-        <filter-name>SpringOpenSessionInViewFilter</filter-name>
-        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
-        <init-param>
-            <param-name>sessionFactoryBean</param-name>
-            <param-value>sessionFactory</param-value>
-        </init-param>
+        <filter-name>OpenEntityManagerInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>SpringOpenSessionInViewFilter</filter-name>
+        <filter-name>OpenEntityManagerInViewFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 

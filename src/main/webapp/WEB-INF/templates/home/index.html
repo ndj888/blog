@@ -16,16 +16,16 @@
 <body>
 <div class="ibody">
   <header>
-    <h1>如影随形</h1>
-    <h2>影子是一个会撒谎的精灵，它在虚空中流浪和等待被发现之间;在存在与不存在之间....</h2>
+    <h1 th:text="${nickName.configVal}">如影随形</h1>
+    <h2 th:text="${signature.configVal}">影子是一个会撒谎的精灵，它在虚空中流浪和等待被发现之间;在存在与不存在之间....</h2>
     <div class="logo"><a href="/"></a></div>
     <nav id="topnav"><a href="index.html">首页</a><a href="about.html">关于我</a><a href="newlist.html">慢生活</a><a href="share.html">模板分享</a><a href="new.html">模板主题</a></nav>
   </header>
   <article>
     <div class="banner">
       <ul class="texts">
-        <p>The best life is use of willing attitude, a happy-go-lucky life. </p>
-        <p>最好的生活是用心甘情愿的态度，过随遇而安的生活。</p>
+        <p th:text="${mood_en.configVal}">The best life is use of willing attitude, a happy-go-lucky life. </p>
+        <p th:text="${mood_ch.configVal}">最好的生活是用心甘情愿的态度，过随遇而安的生活。</p>
       </ul>
     </div>
     <div class="bloglist">
@@ -39,23 +39,23 @@
           <p th:text="${info.subhead}">看到昔日好友发了一篇日志《咎由自取》他说他是一个悲观者，感觉社会抛弃了他，脾气、性格在6年的时间里变化很大，很难适应这个社会。人生其实就是不断犯错的过程，在这个过程中不断的犯错，不断的吸取教训，不断的成长。也许日子里的惊涛骇浪，不过是人生中的水花摇晃，别用显微镜放大你的悲伤。</p>
           <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
         </ul>
-        <p class="autor"><span>作者：杨青</span><span>分类：【<a href="/">日记</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></p>
+        <p class="autor"><span th:text="'作者：' + ${info.author}">作者：杨青</span><span>分类：【<a href="/">日记</a>】</span><span>浏览（<a href="/">459</a>）</span><span>评论（<a href="/">30</a>）</span></p>
         <div class="dateview" th:text="${#calendars.format(info.createTime,'yyyy MMMM dd')}">2014-04-08</div>
       </div>
     </div>
   </article>
   <aside>
-    <div class="avatar"><a href="about.html"><span>关于杨青</span></a></div>
+    <div class="avatar"><a href="about.html"><span th:text="'关于' + ${nickName.configVal}">关于杨青</span></a></div>
     <div class="topspaceinfo">
-      <h1>执子之手，与子偕老</h1>
-      <p>于千万人之中，我遇见了我所遇见的人....</p>
+      <h1 th:text="${subTitle1.configVal}">执子之手，与子偕老</h1>
+      <p th:text="${subTitle2.configVal}">于千万人之中，我遇见了我所遇见的人....</p>
     </div>
     <div class="about_c">
-      <p>网名：DanceSmile | 即步非烟</p>
-      <p>职业：Web前端设计师、网页设计 </p>
-      <p>籍贯：四川省―成都市</p>
-      <p>电话：13662012345</p>
-      <p>邮箱：dancesmiling@qq.com</p>
+      <p th:text="${nickNameFull.configVal}">网名：DanceSmile | 即步非烟</p>
+      <p th:text="${job.configVal}">职业：Web前端设计师、网页设计 </p>
+      <p th:text="${address.configVal}">籍贯：四川省―成都市</p>
+      <p>电话：<span th:text="${mobile.configVal}"></span></p>
+      <p>邮箱：<span th:text="${email.configVal}"></span></p>
     </div>
     <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
     <div class="tj_news">
@@ -90,15 +90,14 @@
       <h2>
         <p>友情链接</p>
       </h2>
-      <ul>
-        <li><a href="/">杨青个人博客</a></li>
-        <li><a href="/">3DST技术社区</a></li>
+      <ul th:each="fl:${friendLinks}">
+        <li><a href="/" th:text="${fl.title}" th:href="${fl.href}">杨青个人博客</a></li>
       </ul>
     </div>
     <div class="copyright">
       <ul>
-        <p> Design by <a href="/">DanceSmile</a></p>
-        <p>蜀ICP备11002373号-1</p>
+        <p> Design by <a href="/" th:text="${copyright.configVal}">DanceSmile</a></p>
+        <p th:text="${putNo.configVal}">蜀ICP备11002373号-1</p>
         </p>
       </ul>
     </div>
