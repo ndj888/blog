@@ -16,12 +16,11 @@ import java.util.List;
 public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
 
     public List getHotTopList(String orderBy, int limit) {
-        return session.createQuery("from BlogArticle where isHot = 1 order by :order_by ")
-                .setCacheable(true)
-                .setString("order_by" , orderBy)
+        return entityManager.createQuery("from BlogArticle where isHot = 1 order by :order_by ")
+                .setParameter("order_by" , orderBy)
                 .setFirstResult(0)
                 .setMaxResults(limit)
-                .list();
+                .getResultList();
     }
 
     public List getNewTopList(int limit) {

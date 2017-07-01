@@ -205,4 +205,13 @@ public class BlogArticle {
         return result;
     }
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "CLS_ID")
+    public BlogClass getBlogClass() {
+        return blogClass;
+    }
+
+    public void setBlogClass(BlogClass blogClass) {
+        this.blogClass = blogClass;
+    }
 }

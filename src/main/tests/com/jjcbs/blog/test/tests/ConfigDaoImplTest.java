@@ -1,5 +1,6 @@
 package com.jjcbs.blog.test.tests;
 
+import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.dao.impl.ConfigDaoImpl;
 import com.jjcbs.blog.test.lib.BaseUnit;
 import org.hibernate.SessionFactory;

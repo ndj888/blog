@@ -1,5 +1,6 @@
 package com.jjcbs.blog.test.tests;
 
+import com.jjcbs.blog.dao.entity.BlogArticle;
 import com.jjcbs.blog.dao.impl.ArticleDaoImpl;
 import com.jjcbs.blog.test.lib.BaseUnit;
 import org.hibernate.Session;
@@ -21,30 +22,28 @@ public class ArticleDaoImplTest extends BaseUnit{
     private final static int MAXLEN = 20;
     private final static byte HOT = 1;
     private List<BlogArticle> blogArticleList = new ArrayList<BlogArticle>();
-    @Autowired
-    private SessionFactory sessionFactory;
 
-    @Before
-    public void initData(){
-        Session session = sessionFactory.openSession();
-        for ( int i = 0 ; i < MAXLEN; i ++ ){
-            blogArticleList.add(new BlogArticle());
-            blogArticleList.get(i).setTitle("测试:" + Integer.toString(i));
-            blogArticleList.get(i).setContentFile("测试硬梆梆无可奈何花落去");
-            blogArticleList.get(i).setUserId(1);
-            if ( i % 2 == 0){
-                blogArticleList.get(i).setIsHot(HOT);
-            }
-            try{
-                session.save(blogArticleList.get(i));
-                session.flush();
-                session.clear();
-            }catch (Exception e){
-                Assert.fail("error" + e.getMessage());
-            }
-        }
-
-    }
+//    @Before
+//    public void initData(){
+//        Session session = sessionFactory.openSession();
+//        for ( int i = 0 ; i < MAXLEN; i ++ ){
+//            blogArticleList.add(new BlogArticle());
+//            blogArticleList.get(i).setTitle("测试:" + Integer.toString(i));
+//            blogArticleList.get(i).setContentFile("测试硬梆梆无可奈何花落去");
+//            blogArticleList.get(i).setUserId(1);
+//            if ( i % 2 == 0){
+//                blogArticleList.get(i).setIsHot(HOT);
+//            }
+//            try{
+//                session.save(blogArticleList.get(i));
+//                session.flush();
+//                session.clear();
+//            }catch (Exception e){
+//                Assert.fail("error" + e.getMessage());
+//            }
+//        }
+//
+//    }
     @Test
     public void getHotTopList(){
         List res = articleDao.getHotTopList("updateTime des , hotOrder des" , 5);
