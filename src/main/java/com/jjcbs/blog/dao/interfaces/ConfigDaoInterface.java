@@ -6,6 +6,8 @@ package com.jjcbs.blog.dao.interfaces;
  * @author jjc
  */
 
+import com.jjcbs.blog.dao.entity.BlogConfig;
+
 import java.util.Map;
 
 /**

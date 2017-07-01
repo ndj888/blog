@@ -1,5 +1,6 @@
 package com.jjcbs.blog.home.controller;
 
+import com.jjcbs.blog.dao.entity.BlogUser;
 import com.jjcbs.blog.dao.impl.ArticleDaoImpl;
 import com.jjcbs.blog.dao.impl.ConfigDaoImpl;
 import com.jjcbs.blog.dao.impl.UserDaoImpl;

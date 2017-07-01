@@ -1,5 +1,6 @@
 package com.jjcbs.blog.dao.impl;
 
+import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.dao.interfaces.ConfigDaoInterface;
 import com.jjcbs.blog.lib.BaseDaoImpl;
 import org.springframework.stereotype.Repository;

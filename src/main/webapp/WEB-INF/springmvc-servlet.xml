@@ -42,7 +42,6 @@
         <property name="cache" value="true"/>
         <property name="cacheLimit" value="1800"/>
     </bean>
-    <bean id="sessionFactory"/>
 
 
     <mvc:annotation-driven>

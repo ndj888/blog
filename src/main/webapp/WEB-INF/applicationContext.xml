@@ -75,7 +75,5 @@
 
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-    <bean id="sessionFactory"/>
-    <bean id="sessionFactory"/>
 
 </beans>

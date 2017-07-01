@@ -2,6 +2,7 @@ package com.jjcbs.blog.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.dao.impl.ConfigDaoImpl;
 import com.jjcbs.blog.lib.BaseService;
 import com.jjcbs.blog.pojo.FriendLinks;

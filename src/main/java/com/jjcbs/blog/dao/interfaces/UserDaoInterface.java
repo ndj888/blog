@@ -1,5 +1,8 @@
 package com.jjcbs.blog.dao.interfaces;
 
+import com.jjcbs.blog.dao.entity.BlogConfig;
+import com.jjcbs.blog.dao.entity.BlogUser;
+
 import java.util.Map;
 
 /**
