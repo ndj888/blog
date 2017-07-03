@@ -1,5 +1,6 @@
 package com.jjcbs.blog.home.controller;
 
+import com.googlecode.ehcache.annotations.Cacheable;
 import com.jjcbs.blog.lib.BaseHomeController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,12 +18,14 @@ public class IndexController extends BaseHomeController{
 
 
     @GetMapping("/index")
+    @Cacheable(cacheName = "myCache")
     public String index(Model model){
-        model.addAttribute("articleList" , articleService.articleDao.getHotTopList("hotOrder desc , createTime des" , 5));
+        model.addAttribute("articleList" , articleService.getHotTopListByHotOrder());
         return "home/index";
     }
 
     @GetMapping("/about")
+    @Cacheable(cacheName = "myCache")
     public String aboutMe(){
         return "home/about";
     }

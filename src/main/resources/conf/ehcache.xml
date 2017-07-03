@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- 1)最好在ehcache.xml中声明不进行updateCheck -->
 <!-- 2)为了配合BigMemory和Size Limit,原来的属性最好改名 -->
 <!--   maxElementsInMemory->maxEntriesLocalHeap -->
@@ -16,8 +17,8 @@ diskSpoolBufferSizeMB：这个参数设置DiskStore（磁盘缓存）的缓存�
 memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。默认策略是LRU（最近最少使用）。你可以设置为FIFO（先进先出）或是LFU（较少使用）
  -->
 
-<ehcache  name="jjcblogCache">
-
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd" name="jjcblogCache">
+    <diskStore path="target/ehcache-diskStore"/>
     <defaultCache
             maxElementsInMemory="1000"
             eternal="false"
@@ -31,4 +32,5 @@ memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将�
            eternal="true"
            overflowToDisk="true"
            diskPersistent="true"/>
+
 </ehcache>

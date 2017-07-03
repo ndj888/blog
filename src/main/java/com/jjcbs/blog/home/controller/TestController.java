@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -58,5 +59,11 @@ public class TestController {
     public @ResponseBody String setConfig(){
         configDao.put("test" , "test123");
         return "succeed";
+    }
+
+    @GetMapping("/testTime")
+    public @ResponseBody String testTime(){
+        Date date = new Date();
+        return date.toString();
     }
 }

@@ -1,5 +1,6 @@
 package com.jjcbs.blog.dao.impl;
 
+import com.googlecode.ehcache.annotations.Cacheable;
 import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.dao.interfaces.ConfigDaoInterface;
 import com.jjcbs.blog.lib.BaseDaoImpl;
@@ -48,6 +49,7 @@ public class ConfigDaoImpl extends BaseDaoImpl implements ConfigDaoInterface {
         delete(get(key));
     }
 
+    @Cacheable(cacheName = "myCache")
     public Map<String, BlogConfig> getAll(Integer limit) {
         limit = limit == null ? 100 : limit;
         Map<String , BlogConfig> blogConfigMap = new HashMap<String, BlogConfig>();

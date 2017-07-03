@@ -21,10 +21,10 @@ public class BaseHomeController extends BaseController{
 
     @ModelAttribute
     public void comModel(Model model){
-        model.addAttribute("hotArticleList" , articleService.articleDao.getHotTopList("hotOrder desc , createTime des" , 5));
+        model.addAttribute("hotArticleList" , articleService.getHotTopListByHotOrder());
         model.addAllAttributes(configService.configDao.getAll(null));
         model.addAttribute("friendLinks" ,configService.getFriendLinks());
-        model.addAttribute("newsList" , articleService.articleDao.getNewTopList(5));
+        model.addAttribute("newsList" , articleService.getNewTopList());
 
     }
 }

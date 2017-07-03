@@ -2,6 +2,7 @@ package com.jjcbs.blog.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.googlecode.ehcache.annotations.Cacheable;
 import com.jjcbs.blog.dao.entity.BlogConfig;
 import com.jjcbs.blog.dao.impl.ConfigDaoImpl;
 import com.jjcbs.blog.lib.BaseService;
@@ -31,6 +32,7 @@ public class ConfigServiceImpl extends BaseService implements ConfigServiceInter
     @Autowired
     public ConfigDaoImpl configDao;
 
+    @Cacheable(cacheName = "myCache")
     public List getFriendLinks() {
         BlogConfig blogConfig = configDao.get(FRIEND_LINKS_NAME);
         try {
