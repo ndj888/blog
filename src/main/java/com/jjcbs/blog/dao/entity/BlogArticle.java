@@ -34,6 +34,7 @@ public class BlogArticle {
     private String img;
     private String author;
     private BlogClass blogClass;
+    private String keyword;
 
     @Basic
     @Column(name = "author")
@@ -163,6 +164,18 @@ public class BlogArticle {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    @Basic
+    @Column(name = "keyword")
+    public String getKeyword() {
+        return keyword;
+    }
+
+    @Basic
+    @Column(name = "keyword")
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     @Override

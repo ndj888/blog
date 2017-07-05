@@ -40,7 +40,7 @@ public class ArticleServiceImpl extends BaseService implements ArticleServiceInt
     }
 
     @Cacheable(cacheName = "myCache")
-    public Map readArticle(int id) {
+    public Map<String , ?> readArticle(int id) {
         Map<String , Object> data = new HashMap<String, Object>();
         try{
             BlogArticle article = (BlogArticle) articleDao.findById(BlogArticle.class , id);
@@ -52,15 +52,20 @@ public class ArticleServiceImpl extends BaseService implements ArticleServiceInt
         return data;
     }
 
+    @Cacheable(cacheName = "myCache")
     public LastAndNextInfo getLastAndNextInfo(BlogArticle article) {
         LastAndNextInfo lastAndNextInfo = new LastAndNextInfo();
         try{
             lastAndNextInfo.setLastObject(articleDao.findById(BlogArticle.class , article.getId() - 1));
-            lastAndNextInfo.setNextObject(articleDao.findById(BlogArticle.class , article.getId() + 1));
-            return lastAndNextInfo;
         }catch (Exception e){
-            logger.error(e.getMessage() + "获取上一页上一页失败");
+            logger.error(e.getMessage() + "获取上一页上失败");
         }
-        return null;
+
+        try{
+            lastAndNextInfo.setNextObject(articleDao.findById(BlogArticle.class , article.getId() + 1));
+        }catch (Exception e){
+            logger.error(e.getMessage() + "获取下一页失败");
+        }
+        return lastAndNextInfo;
     }
 }

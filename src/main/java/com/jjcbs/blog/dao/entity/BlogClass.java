@@ -1,6 +1,8 @@
 package com.jjcbs.blog.dao.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/6/28 0028.
@@ -15,6 +17,7 @@ public class BlogClass {
     private String descontent;
     private Integer updateTime;
     private Integer createTime;
+    private List<BlogArticle> articles = new ArrayList<BlogArticle>();
 
     @Id
     @Column(name = "id")
@@ -64,6 +67,16 @@ public class BlogClass {
 
     public void setCreateTime(Integer createTime) {
         this.createTime = createTime;
+    }
+
+    @OneToMany
+    @JoinColumn(name = "ID")
+    public List<BlogArticle> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<BlogArticle> articles) {
+        this.articles = articles;
     }
 
     @Override

@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/6/19 0019.
@@ -58,4 +61,5 @@ public abstract class BaseDaoImpl implements BaseDaoInterface{
         session.saveOrUpdate(entity);
         session.flush();
     }
+
 }
