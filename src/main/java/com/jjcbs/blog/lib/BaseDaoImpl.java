@@ -49,8 +49,8 @@ public abstract class BaseDaoImpl implements BaseDaoInterface{
         session.flush();
     }
 
-    public Object findById(Object entity , int id) throws Exception {
-        String hql = String.format("from %s where id = %d" , entity.getClass().getName() , id);
+    public Object findById(Class className , int id) throws Exception {
+        String hql = String.format("from %s where id = %d" , className.getName() , id);
         return session.createQuery(hql).list().get(0);
     }
 

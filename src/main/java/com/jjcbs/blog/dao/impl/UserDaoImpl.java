@@ -17,7 +17,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDaoInterface {
     public boolean userIsexist(Map<String, String> where) {
         int id =  Integer.parseInt(where.get("id"));
         try{
-            BlogUser userInfo = (BlogUser) findById(new BlogUser() ,id);
+            BlogUser userInfo = (BlogUser) findById(BlogUser.class ,id);
             return userInfo != null;
         }catch (Exception e){
             logger.error("找不到用户信息: id :" + id );
@@ -27,7 +27,7 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDaoInterface {
 
     public BlogUser getUserInfoById(int id) throws Exception{
         try{
-            return (BlogUser) findById(new BlogUser() ,id);
+            return (BlogUser) findById(BlogUser.class ,id);
         }catch (Exception e){
             logger.error("找不到用户信息: id :" + id );
         }
