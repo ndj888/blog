@@ -1,10 +1,10 @@
 <!doctype html>
-<html>
-<head>
-<meta charset="gb2312">
-<title>ºÚÉ«Html5ÏìÓ¦Ê½¸öÈË²©¿ÍÄ£°å¡ª¡ªÖ÷Ìâ¡¶ÈçÓ°ËæÐÎ¡·</title>
-<meta name="keywords" content="¸öÈË²©¿ÍÄ£°å,²©¿ÍÄ£°å,ÏìÓ¦Ê½" />
-<meta name="description" content="ÈçÓ°ËæÐÎÖ÷ÌâµÄ¸öÈË²©¿ÍÄ£°å£¬ÉñÃØ¡¢ÇÎÆ¤¡£" />
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/home/common :: comHead(~{::link} , ~{::title})">
+<meta charset="utf-8">
+<title>é»‘è‰²Html5å“åº”å¼ä¸ªäººåšå®¢æ¨¡æ¿â€•â€•ä¸»é¢˜ã€Šå¦‚å½±éšå½¢ã€‹</title>
+<meta name="keywords" content="ä¸ªäººåšå®¢æ¨¡æ¿,åšå®¢æ¨¡æ¿,å“åº”å¼" />
+<meta name="description" content="å¦‚å½±éšå½¢ä¸»é¢˜çš„ä¸ªäººåšå®¢æ¨¡æ¿ï¼Œç¥žç§˜ã€ä¿çš®ã€‚" />
 <link href="css/base.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <link href="css/media.css" rel="stylesheet">
@@ -15,94 +15,22 @@
 </head>
 <body>
 <div class="ibody">
-  <header>
-    <h1>ÈçÓ°ËæÐÎ</h1>
-    <h2>Ó°×ÓÊÇÒ»¸ö»áÈö»ÑµÄ¾«Áé£¬ËüÔÚÐé¿ÕÖÐÁ÷ÀËºÍµÈ´ý±»·¢ÏÖÖ®¼ä;ÔÚ´æÔÚÓë²»´æÔÚÖ®¼ä....</h2>
+  <header th:replace="home/common :: header_content">
+    <h1>å¦‚å½±éšå½¢</h1>
+    <h2>å½±å­æ˜¯ä¸€ä¸ªä¼šæ’’è°Žçš„ç²¾çµï¼Œå®ƒåœ¨è™šç©ºä¸­æµæµªå’Œç­‰å¾…è¢«å‘çŽ°ä¹‹é—´;åœ¨å­˜åœ¨ä¸Žä¸å­˜åœ¨ä¹‹é—´....</h2>
     <div class="logo"><a href="/"></a></div>
-    <nav id="topnav"><a href="index.html">Ê×Ò³</a><a href="about.html">¹ØÓÚÎÒ</a><a href="newlist.html">ÂýÉú»î</a><a href="share.html">Ä£°å·ÖÏí</a><a href="new.html">Ä£°åÖ÷Ìâ</a></nav>
+    <nav id="topnav"><a href="index.html">é¦–é¡µ</a><a href="about.html">å…³äºŽæˆ‘</a><a href="newlist.html">æ…¢ç”Ÿæ´»</a><a href="share.html">æ¨¡æ¿åˆ†äº«</a><a href="new.html">æ¨¡æ¿ä¸»é¢˜</a></nav>
   </header>
   <article>
-    <h2 class="about_h">ÄúÏÖÔÚµÄÎ»ÖÃÊÇ£º<a href="/">Ê×Ò³</a>><a href="1/">ÂýÉú»î</a></h2>
+    <h2 class="about_h">æ‚¨çŽ°åœ¨çš„ä½ç½®æ˜¯ï¼š<a href="/">é¦–é¡µ</a>><a href="1/">æ…¢ç”Ÿæ´»</a></h2>
     <div class="bloglist">
       <div class="newblog">
         <ul>
-          <h3><a href="/">¸öÈË²©¿Í´Ó¼ò²»·±</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">ÈÕ¼Ç</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>Ê®Ò»ÔÂÖÐÑ®¿ªÊ¼£¬ÅÅÃûÍ»È»ÏÂ½µÁË£¬ÍøÕ¾¡°¸öÈË²©¿Í¡±¹Ø¼ü´ÊÅÅÃû´ÓµÚÒ»Ò³µÚ¶þÃû»¬Âäµ½100Ò³ÒÔºóÁË£¬¸öÈË²©¿ÍÕâ¸ö¹Ø¼ü´Ê°Ù¶ÈÒÑ¾­ËÑ²»µ½ÁË£¬½öÓÐgoogle¡¢ËÑ¹·... <a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
+          <h3><a href="/">ä¸ªäººåšå®¢ä»Žç®€ä¸ç¹</a></h3>
+          <div class="autor"><span>ä½œè€…ï¼šæ¨é’</span><span>åˆ†ç±»ï¼š[<a href="/">æ—¥è®°</a>]</span><span>æµè§ˆï¼ˆ<a href="/">459</a>ï¼‰</span><span>è¯„è®ºï¼ˆ<a href="/">30</a>ï¼‰</span></div>
+          <p>åä¸€æœˆä¸­æ—¬å¼€å§‹ï¼ŒæŽ’åçªç„¶ä¸‹é™äº†ï¼Œç½‘ç«™â€œä¸ªäººåšå®¢â€å…³é”®è¯æŽ’åä»Žç¬¬ä¸€é¡µç¬¬äºŒåæ»‘è½åˆ°100é¡µä»¥åŽäº†ï¼Œä¸ªäººåšå®¢è¿™ä¸ªå…³é”®è¯ç™¾åº¦å·²ç»æœä¸åˆ°äº†ï¼Œä»…æœ‰googleã€æœç‹—... <a href="/" target="_blank" class="readmore">å…¨æ–‡</a></p>
         </ul>
         <figure><img src="images/001.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">ÔÙ¿´4ÄêÇ°Ä³»éÁµÍøÕ¾ÎÒµÄÊ®ÌõÕ÷»éÌõ¼þ</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">ÈÕ¼Ç</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>ÒâÍâµÄÊÇÕâ¸öµ±µØµÄ»éÁµÍøÕ¾µ½Ä¿Ç°»¹´æÔÚ£¬¸üÒâÍâµÄÊÇ£¬ÎÒµÄ¸öÈËÕÊºÅ»¹±£´æÔÚËûÃÇÍøÕ¾ÉÏ¡£ºÃÆæÐÄÆÈÊ¹ÎÒ´ò¿ª¸öÈË×ÊÁÏ¿´¿´µ½µ×µ±ÄêÐ´ÁËÊ²Ã´ÑùµÄÕ÷»éÌõ¼þ¡£Ô­À´ÕâÐ©ÄêÕâÐ©±ê×¼Ò»Ö±¶¼Ã»ÓÐ±ä¹ý£¬ÒòÎªÏ°¹ß£¬ËùÒÔÏ²»¶£¡ <a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/005.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">³ÌÐòÔ±ÄÇÐ©ËöËéµÄ¸ºÃæÇéÐ÷</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">³ÌÐòÈËÉú</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>ÔÚ¿Í»§ÑÛÀï×ö¸öÒ³Ãæ£¬ºÜ¼òµ¥£¬ÊµÏÖÒ»¸ö¹¦ÄÜÒ²ÊÇºÜÇáËÉµÄÊÂ¶ù¡£×÷Îª¼¼ÊõÔ±£¬ÕæµÄºÜÎÞÄÎ£¬Èç¹ûÕæµÄÄÇÃ´¼òµ¥µÄ»°£¬ÎÒÃÇ»¹ÓÃ³ÉÌì±§Ô¹×Ô¼ºÊÇÂëÅ©Âð£¿ÏúÊÛµÄ½ÇÉ«ÆäÊµÒ²ÂùÖØÒªµÄ£¬ÍøÕ¾µÄ³É·ñ£¬¶¼¸ú¿Í»§¹µÍ¨Àë²»¿ª£¬Ã»¹µÍ¨ºÃ£¬×öÎÞÓÃ¹¦µÄ¾ÍÊÇ³ÌÐòÔ±ÁË...<a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/008.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">¼òµ¥ÊÖ¹¤Ö½Ãµ¹å</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">ÈÕ¼Ç</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>¹ýÄêÇ°ºó¶¼ÊÇÔÚÎÞÁÄÖÐ£¬ÔÚÍøÉÏÑ§ÁË4ÖÖÃµ¹åÕÛ·¨£¬ÕûÕÅÕÛµÄÃµ¹å²½ÖèºÜ¶à£¬¹Ø¼üµÄÒ»²½¶ÔÕÛ¾­³£ÈÝÒ×°ÑÖ½ÕÛ»µ£¬ËùÒÔÑ¡ÔñÁË×î¼òµ¥µÄÕÛ·¨£¬°ÑÖ½ÕÅ·Ö½â¿ª£¬È»ºóÒ»ÕÅÕÅµÄÓÃË«Ãæ½ºÕ³ÉÏ¡£Ð§¹û»¹ÊÇ²»´í°É£¡ <a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/002.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">Ä³Ò»ÈËËÆÔøÏàÊ¶¡¢Ä³Ò»¿ÌËÆÔø¾­Àú</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">¾­µäÓïÂ¼</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>ÓÐÊ±ºò»áÓÐÕâÑùµÄ´í¾õ£º¡°Ä³Ò»ÈËËÆÔøÏàÊ¶¡¢Ä³Ò»¿ÌËÆÔø¾­Àú¡±£¬ÕâÑùÆæÌØµÄ¸ÐÊÜ´ó¸ÅÄãÒ²ÓÐ¹ý¡£ÐÄÀíÑ§³ÆÖ®Îª¡°¼´ÊÓÏÖÏó¡±£¬ÊÇ¼ÇÒäÖÐÌ«¶àÔÓÂÒÐÅÏ¢ÖÆÔì³öµÄÒ»ÖÖÇ±ÒâÊ¶Ã¬¶Ü³åÍ»¡£ <a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/003.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">·¸´íÁËÔõÃ´°ì£¿</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">ÈÕ¼Ç</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>¿´µ½ÎôÈÕºÃÓÑ·¢ÁËÒ»ÆªÈÕÖ¾¡¶¾ÌÓÉ×ÔÈ¡¡·ËûËµËûÊÇÒ»¸ö±¯¹ÛÕß£¬¸Ð¾õÉç»áÅ×ÆúÁËËû£¬Æ¢Æø¡¢ÐÔ¸ñÔÚ6ÄêµÄÊ±¼äÀï±ä»¯ºÜ´ó£¬ºÜÄÑÊÊÓ¦Õâ¸öÉç»á¡£ÈËÉúÆäÊµ¾ÍÊÇ²»¶Ï·¸´íµÄ¹ý³Ì£¬ÔÚÕâ¸ö¹ý³ÌÖÐ²»¶ÏµÄ·¸´í£¬²»¶ÏµÄÎüÈ¡½ÌÑµ£¬²»¶ÏµÄ³É³¤... <a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/01.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">Á½Ö»ÎÏÅ£¼èÄÑÓÖÀËÂþµÄÒ»ÎÇ</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">ÈÕ¼Ç</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>ÕâÊÇ¹úÍâÒ»ÉãÓ°Ê¦ÅÄÉãµ½µÄ£¬¿´µ½ÕâÒ»Ä»£¬»¹ÕæÓÐ°®£¡¹ØÓÚÁ½Ö»ÎÏÅ£ÏàÓö£¬¸ÃÕâ°ã½âÊÍ£ºÁ½¸öÎÏÅ£ÏàÓöµÄÊ±ºò£¬»¥ÏàÓÃ´¥½Ç½Ó´¥£¬È»ºóÍ·ºÍÍ·Ïà¶Ô£¬ÉíÌå²¢Á¬£¬±Ë´ËÉúÖ³Ç»µÄÎ»ÖÃÏà½Ó... <a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/004.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">³­Ï®ÃÅ¹ýºó¡ª¡ª¶ªµôÐÄ½á£¬ÖØÊ°×Ô¼º</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">ÈÕ¼Ç</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>ÄÇ½öÓÐµÄÒ»´Î³­Ï®±»Ê¶ÆÆºó£¬ËäÈ»ÎÒºóÀ´²»¶ÏµÄÅ¬Á¦Ð´ºÃµÄÎÄÕÂ£¬ÔÚ½ÌÓý±¨¿¯ÔÓÖ¾Í¶¸å²¢·¢±í£¬µ«×Ü±»¸ÇÉÏÁË¿ÉÄÜÊÇ³­Ï®µÄÃ±×Ó¡£ÎÒÔ¹ÀÏÊ¦µÄºÁ²»ÁôÇé£¬¸ü¶àµÄÊÇÔ¹×Ô¼ºÖÁ½ñ»¹·Å²»ÏÂ¡£Èç¹ûÎÒ±¾Éí×÷ÎÄË®Æ½¾ÍÒ»°ã£¬²»»á¾­³£±»µ±·¶ÎÄ...<a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/006.jpg" ></figure>
-        <div class="dateview">2014-04-08</div>
-      </div>
-      <div class="newblog">
-        <ul>
-          <h3><a href="/">³ÌÐòÔ±Ó¦¸ÃÈçºÎ¸ßÐ§µÄ¹¤×÷Ñ§Ï°</a></h3>
-          <div class="autor"><span>×÷Õß£ºÑîÇà</span><span>·ÖÀà£º[<a href="/">ÈÕ¼Ç</a>]</span><span>ä¯ÀÀ£¨<a href="/">459</a>£©</span><span>ÆÀÂÛ£¨<a href="/">30</a>£©</span></div>
-          <p>¶ÔÓÚÒ»¸ö³ÌÐòÔ±À´Ëµ£¬Èç¹ûÕýÔÚÐ´´úÂë£¬Ð´µÃÕýhighµÄÊ±ºò£¬Í»È»±»½ÐÈ¥¿ª»á£¬»òÕßÊÇÓÐ¿Í»§À´ÁË£¬ÓÐÁËÐÂµÄÏë·¨£¬Òª¹µÍ¨£¬ÕâÊ±ºò²»µÃ²»°ÑÐ´µ½Ò»°ëµÄ´úÂë¸éÔÚÄÇ¶ù£¬µÈ¿Í»§Ò»×ß£¬»áÒ»¿ªÍê£¬ÓÖµÃ»¨ºÜ³¤µÄÊ±ºòÀ´ÂÆÇå..<a href="/" target="_blank" class="readmore">È«ÎÄ</a></p>
-        </ul>
-        <figure><img src="images/007.jpg" ></figure>
         <div class="dateview">2014-04-08</div>
       </div>
     </div>
@@ -110,103 +38,103 @@
   </article>
   <aside>
     <div class="rnav">
-      <li class="rnav1 "><a href="/">ÈÕ¼Ç</a></li>
-      <li class="rnav2 "><a href="/">ÐÀÉÍ</a></li>
-      <li class="rnav3 "><a href="/">³ÌÐòÈËÉú</a></li>
-      <li class="rnav4 "><a href="/">¾­µäÓïÂ¼</a></li>
+      <li class="rnav1 "><a href="/">æ—¥è®°</a></li>
+      <li class="rnav2 "><a href="/">æ¬£èµ</a></li>
+      <li class="rnav3 "><a href="/">ç¨‹åºäººç”Ÿ</a></li>
+      <li class="rnav4 "><a href="/">ç»å…¸è¯­å½•</a></li>
     </div>
     <div class="ph_news">
       <h2>
-        <p>µã»÷ÅÅÐÐ</p>
+        <p>ç‚¹å‡»æŽ’è¡Œ</p>
       </h2>
       <ul class="ph_n">
-        <li><span class="num1">1</span><a href="/">ÓÐÒ»ÖÖË¼Äî£¬ÊÇµ­µ­µÄÐÒ¸£,Ò»¸öÐÄÇéÒ»ÐÐÎÄ×Ö</a></li>
-        <li><span class="num2">2</span><a href="/">ÀøÖ¾ÈËÉú-Òª×öÒ»¸öäìÈ÷µÄÅ®ÈË</a></li>
-        <li><span class="num3">3</span><a href="/">Å®º¢¶¼ÓÐÀËÂþµÄÐ¡Çé»³¡ª¡ªÀËÂþµÄÇó»é´Ê</a></li>
-        <li><span>4</span><a href="/">GreenÂÌÉ«Ð¡ÇåÐÂµÄÏÄÌì-¸öÈË²©¿ÍÄ£°å</a></li>
-        <li><span>5</span><a href="/">Å®ÉúÇåÐÂ¸öÈË²©¿ÍÍøÕ¾Ä£°å</a></li>
-        <li><span>6</span><a href="/">Wedding-»éÀñÖ÷Ìâ¡¢ÇéÈË½ÚÍøÕ¾Ä£°å</a></li>
-        <li><span>7</span><a href="/">Column ÈýÀ¸²¼¾Ö ¸öÈËÍøÕ¾Ä£°å</a></li>
-        <li><span>8</span><a href="/">Ê±¼äÖóÓê-¸öÈËÍøÕ¾Ä£°å</a></li>
-        <li><span>9</span><a href="/">»¨ÆøÏ®ÈËÊÇ¾ÆÏã¡ª¸öÈËÍøÕ¾Ä£°å</a></li>
+        <li><span class="num1">1</span><a href="/">æœ‰ä¸€ç§æ€å¿µï¼Œæ˜¯æ·¡æ·¡çš„å¹¸ç¦,ä¸€ä¸ªå¿ƒæƒ…ä¸€è¡Œæ–‡å­—</a></li>
+        <li><span class="num2">2</span><a href="/">åŠ±å¿—äººç”Ÿ-è¦åšä¸€ä¸ªæ½‡æ´’çš„å¥³äºº</a></li>
+        <li><span class="num3">3</span><a href="/">å¥³å­©éƒ½æœ‰æµªæ¼«çš„å°æƒ…æ€€â€•â€•æµªæ¼«çš„æ±‚å©šè¯</a></li>
+        <li><span>4</span><a href="/">Greenç»¿è‰²å°æ¸…æ–°çš„å¤å¤©-ä¸ªäººåšå®¢æ¨¡æ¿</a></li>
+        <li><span>5</span><a href="/">å¥³ç”Ÿæ¸…æ–°ä¸ªäººåšå®¢ç½‘ç«™æ¨¡æ¿</a></li>
+        <li><span>6</span><a href="/">Wedding-å©šç¤¼ä¸»é¢˜ã€æƒ…äººèŠ‚ç½‘ç«™æ¨¡æ¿</a></li>
+        <li><span>7</span><a href="/">Column ä¸‰æ å¸ƒå±€ ä¸ªäººç½‘ç«™æ¨¡æ¿</a></li>
+        <li><span>8</span><a href="/">æ—¶é—´ç…®é›¨-ä¸ªäººç½‘ç«™æ¨¡æ¿</a></li>
+        <li><span>9</span><a href="/">èŠ±æ°”è¢­äººæ˜¯é…’é¦™â€•ä¸ªäººç½‘ç«™æ¨¡æ¿</a></li>
       </ul>
       <h2>
-        <p>À¸Ä¿ÍÆ¼ö</p>
+        <p>æ ç›®æŽ¨è</p>
       </h2>
       <ul>
-        <li><a href="/">ÓÐÒ»ÖÖË¼Äî£¬ÊÇµ­µ­µÄÐÒ¸£,Ò»¸öÐÄÇéÒ»ÐÐÎÄ×Ö</a></li>
-        <li><a href="/">ÀøÖ¾ÈËÉú-Òª×öÒ»¸öäìÈ÷µÄÅ®ÈË</a></li>
-        <li><a href="/">Å®º¢¶¼ÓÐÀËÂþµÄÐ¡Çé»³¡ª¡ªÀËÂþµÄÇó»é´Ê</a></li>
-        <li><a href="/">GreenÂÌÉ«Ð¡ÇåÐÂµÄÏÄÌì-¸öÈË²©¿ÍÄ£°å</a></li>
-        <li><a href="/">Å®ÉúÇåÐÂ¸öÈË²©¿ÍÍøÕ¾Ä£°å</a></li>
-        <li><a href="/">Wedding-»éÀñÖ÷Ìâ¡¢ÇéÈË½ÚÍøÕ¾Ä£°å</a></li>
-        <li><a href="/">Column ÈýÀ¸²¼¾Ö ¸öÈËÍøÕ¾Ä£°å</a></li>
-        <li><a href="/">Ê±¼äÖóÓê-¸öÈËÍøÕ¾Ä£°å</a></li>
-        <li><a href="/">»¨ÆøÏ®ÈËÊÇ¾ÆÏã¡ª¸öÈËÍøÕ¾Ä£°å</a></li>
+        <li><a href="/">æœ‰ä¸€ç§æ€å¿µï¼Œæ˜¯æ·¡æ·¡çš„å¹¸ç¦,ä¸€ä¸ªå¿ƒæƒ…ä¸€è¡Œæ–‡å­—</a></li>
+        <li><a href="/">åŠ±å¿—äººç”Ÿ-è¦åšä¸€ä¸ªæ½‡æ´’çš„å¥³äºº</a></li>
+        <li><a href="/">å¥³å­©éƒ½æœ‰æµªæ¼«çš„å°æƒ…æ€€â€•â€•æµªæ¼«çš„æ±‚å©šè¯</a></li>
+        <li><a href="/">Greenç»¿è‰²å°æ¸…æ–°çš„å¤å¤©-ä¸ªäººåšå®¢æ¨¡æ¿</a></li>
+        <li><a href="/">å¥³ç”Ÿæ¸…æ–°ä¸ªäººåšå®¢ç½‘ç«™æ¨¡æ¿</a></li>
+        <li><a href="/">Wedding-å©šç¤¼ä¸»é¢˜ã€æƒ…äººèŠ‚ç½‘ç«™æ¨¡æ¿</a></li>
+        <li><a href="/">Column ä¸‰æ å¸ƒå±€ ä¸ªäººç½‘ç«™æ¨¡æ¿</a></li>
+        <li><a href="/">æ—¶é—´ç…®é›¨-ä¸ªäººç½‘ç«™æ¨¡æ¿</a></li>
+        <li><a href="/">èŠ±æ°”è¢­äººæ˜¯é…’é¦™â€•ä¸ªäººç½‘ç«™æ¨¡æ¿</a></li>
       </ul>
       <h2>
-        <p>×îÐÂÆÀÂÛ</p>
+        <p>æœ€æ–°è¯„è®º</p>
       </h2>
       <ul class="pl_n">
         <dl>
           <dt><img src="images/s8.jpg"> </dt>
           <dt> </dt>
           <dd>DanceSmile
-            <time>49·ÖÖÓÇ°</time>
+            <time>49åˆ†é’Ÿå‰</time>
           </dd>
-          <dd><a href="/">ÎÄÕÂ·Ç³£ÏêÏ¸£¬ÎÒºÜÏ²»¶.Ç°¶ËµÄ¹¤³ÌÊ¦ºÜÉÙ£¬ÎÒ¼ÇµÃ¼¸ÄêÇ°yahoo»¨¸ßÐ½ÕÐÆ¸Ç°¶ËÒ²ÕÐ²»µ½</a></dd>
+          <dd><a href="/">æ–‡ç« éžå¸¸è¯¦ç»†ï¼Œæˆ‘å¾ˆå–œæ¬¢.å‰ç«¯çš„å·¥ç¨‹å¸ˆå¾ˆå°‘ï¼Œæˆ‘è®°å¾—å‡ å¹´å‰yahooèŠ±é«˜è–ªæ‹›è˜å‰ç«¯ä¹Ÿæ‹›ä¸åˆ°</a></dd>
         </dl>
         <dl>
           <dt><img src="images/s7.jpg"> </dt>
           <dt> </dt>
           <dd>yisa
-            <time>2Ð¡Ê±Ç°</time>
+            <time>2å°æ—¶å‰</time>
           </dd>
-          <dd><a href="/">ÎÒÊÖ»úÀïÃæÒ²ÓÐÕâÑùÒ»¸öºÅÂë´æÔÚ</a></dd>
+          <dd><a href="/">æˆ‘æ‰‹æœºé‡Œé¢ä¹Ÿæœ‰è¿™æ ·ä¸€ä¸ªå·ç å­˜åœ¨</a></dd>
         </dl>
         <dl>
           <dt><img src="images/s6.jpg"> </dt>
           <dt> </dt>
-          <dd>Ð¡ÁÖ²©¿Í
-            <time>8ÔÂ7ÈÕ</time>
+          <dd>å°æž—åšå®¢
+            <time>8æœˆ7æ—¥</time>
           </dd>
-          <dd><a href="/">²©¿ÍÉ«²Ê·á¸»£¬ºÜÊÇºÃ¿´</a></dd>
+          <dd><a href="/">åšå®¢è‰²å½©ä¸°å¯Œï¼Œå¾ˆæ˜¯å¥½çœ‹</a></dd>
         </dl>
         <dl>
           <dt><img src="images/003.jpg"> </dt>
           <dt> </dt>
           <dd>DanceSmile
-            <time>49·ÖÖÓÇ°</time>
+            <time>49åˆ†é’Ÿå‰</time>
           </dd>
-          <dd><a href="/">ÎÄÕÂ·Ç³£ÏêÏ¸£¬ÎÒºÜÏ²»¶.Ç°¶ËµÄ¹¤³ÌÊ¦ºÜÉÙ£¬ÎÒ¼ÇµÃ¼¸ÄêÇ°yahoo»¨¸ßÐ½ÕÐÆ¸Ç°¶ËÒ²ÕÐ²»µ½</a></dd>
+          <dd><a href="/">æ–‡ç« éžå¸¸è¯¦ç»†ï¼Œæˆ‘å¾ˆå–œæ¬¢.å‰ç«¯çš„å·¥ç¨‹å¸ˆå¾ˆå°‘ï¼Œæˆ‘è®°å¾—å‡ å¹´å‰yahooèŠ±é«˜è–ªæ‹›è˜å‰ç«¯ä¹Ÿæ‹›ä¸åˆ°</a></dd>
         </dl>
         <dl>
           <dt><img src="images/002.jpg"> </dt>
           <dt> </dt>
           <dd>yisa
-            <time>2Ð¡Ê±Ç°</time>
+            <time>2å°æ—¶å‰</time>
           </dd>
-          <dd><a href="/">ÎÒÊÖ»úÀïÃæÒ²ÓÐÕâÑùÒ»¸öºÅÂë´æÔÚ</a></dd>
+          <dd><a href="/">æˆ‘æ‰‹æœºé‡Œé¢ä¹Ÿæœ‰è¿™æ ·ä¸€ä¸ªå·ç å­˜åœ¨</a></dd>
         </dl>
       </ul>
       <h2>
-        <p>×î½ü·Ã¿Í</p>
+        <p>æœ€è¿‘è®¿å®¢</p>
         <ul>
-          <img src="images/vis.jpg"><!-- Ö±½ÓÊ¹ÓÃ¡°¶àËµ¡±²å¼þµÄµ÷ÓÃ´úÂë -->
+          <img src="images/vis.jpg"><!-- ç›´æŽ¥ä½¿ç”¨â€œå¤šè¯´â€æ’ä»¶çš„è°ƒç”¨ä»£ç  -->
         </ul>
       </h2>
     </div>
     <div class="copyright">
       <ul>
         <p> Design by <a href="/">DanceSmile</a></p>
-        <p>ÊñICP±¸11002373ºÅ-1</p>
+        <p>èœ€ICPå¤‡11002373å·-1</p>
         </p>
       </ul>
     </div>
   </aside>
   <script src="js/silder.js"></script>
   <div class="clear"></div>
-  <!-- Çå³ý¸¡¶¯ --> 
+  <!-- æ¸…é™¤æµ®åŠ¨ --> 
 </div>
 </body>
 </html>

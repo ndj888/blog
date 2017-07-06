@@ -4,6 +4,7 @@ import com.jjcbs.blog.dao.entity.BlogArticle;
 import com.jjcbs.blog.pojo.LastAndNextInfo;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,4 +34,5 @@ public interface ArticleServiceInterface {
      * @return
      */
     LastAndNextInfo getLastAndNextInfo(BlogArticle article);
+
 }

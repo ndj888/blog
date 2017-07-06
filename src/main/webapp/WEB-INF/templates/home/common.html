@@ -33,13 +33,13 @@
                 <p class="tj_t1">最新文章</p>
             </h2>
             <ul>
-                <li th:each="news : ${newsList}"><a href="/" th:text="${news.title}">犯错了怎么办？</a></li>
+                <li th:each="news : ${newsList}"><a href="/" th:text="${news.title}" th:href="@{'/news/' + ${news.id} + '.html'}">犯错了怎么办？</a></li>
             </ul>
             <h2>
                 <p class="tj_t2">推荐文章</p>
             </h2>
             <ul>
-                <li th:each="hInfo:${hotArticleList}"><a href="/" th:text="${hInfo.title}">犯错了怎么办？</a></li>
+                <li th:each="hInfo:${hotArticleList}"><a href="/" th:text="${hInfo.title}" th:href="@{'/news/' + ${hInfo.id} + '.html'}">犯错了怎么办？</a></li>
             </ul>
         </div>
         <div class="links">

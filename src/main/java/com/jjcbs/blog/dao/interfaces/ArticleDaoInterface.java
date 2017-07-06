@@ -28,6 +28,4 @@ public interface ArticleDaoInterface {
      * @return
      */
     List getNewTopList(int limit);
-
-
 }

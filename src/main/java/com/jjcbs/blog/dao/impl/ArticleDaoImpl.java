@@ -3,6 +3,7 @@ package com.jjcbs.blog.dao.impl;
 import com.googlecode.ehcache.annotations.Cacheable;
 import com.jjcbs.blog.dao.interfaces.ArticleDaoInterface;
 import com.jjcbs.blog.lib.BaseDaoImpl;
+import org.hibernate.jpa.QueryHints;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,8 @@ import java.util.List;
 
 @Repository
 public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
+
+    private static final int PAGE_SIZE = 10;
 
     @Cacheable(cacheName = "myCache")
     public List getHotTopList(String orderBy, int limit) {
@@ -33,5 +36,15 @@ public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
                 .setFirstResult(0)
                 .setMaxResults(limit)
                 .list();
+    }
+
+    @Cacheable(cacheName = "myCache")
+    public List getNewListImplPage(int curPage) {
+        int t = curPage - 1 <= 0 ? 0 : curPage;
+        return entityManager.createQuery("from BlogArticle order by createTime desc ,isHot desc ")
+                .setHint(QueryHints.HINT_CACHEABLE , true)
+                .setFirstResult(t)
+                .setMaxResults(PAGE_SIZE)
+                .getResultList();
     }
 }

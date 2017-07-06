@@ -1,10 +1,16 @@
 package com.jjcbs.blog.home.controller;
 
 import com.googlecode.ehcache.annotations.Cacheable;
+import com.jjcbs.blog.dao.entity.BlogClass;
 import com.jjcbs.blog.lib.BaseHomeController;
+import com.jjcbs.blog.service.impl.ClassServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -16,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class IndexController extends BaseHomeController{
 
+    @Autowired
+    private ClassServiceImpl classService;
 
     @GetMapping("/index")
     public String index(Model model){
@@ -32,5 +40,11 @@ public class IndexController extends BaseHomeController{
     public String news(@PathVariable int id , Model model){
         model.addAllAttributes( articleService.readArticle(id));
         return "home/news";
+    }
+
+    @GetMapping(value = "/newlist/{page:\\d}")
+    public String newlist(@PathVariable int page , Model model){
+        model.addAttribute("newList" , articleService.articleDao.getNewListImplPage(page));
+        return "/home/newlist";
     }
 }

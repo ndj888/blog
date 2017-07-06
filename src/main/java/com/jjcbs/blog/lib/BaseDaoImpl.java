@@ -54,7 +54,7 @@ public abstract class BaseDaoImpl implements BaseDaoInterface{
 
     public Object findById(Class className , int id) throws Exception {
         String hql = String.format("from %s where id = %d" , className.getName() , id);
-        return session.createQuery(hql).list().get(0);
+        return session.createQuery(hql).setCacheable(true).list().get(0);
     }
 
     public void createOrUpdate(Object entity) throws Exception {
