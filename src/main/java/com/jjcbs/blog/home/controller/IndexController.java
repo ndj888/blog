@@ -44,7 +44,9 @@ public class IndexController extends BaseHomeController{
 
     @GetMapping(value = "/newlist/{page:\\d}")
     public String newlist(@PathVariable int page , Model model){
+        Integer p = page;
         model.addAttribute("newList" , articleService.articleDao.getNewListImplPage(page));
+        model.addAttribute("curPage" , p);
         return "/home/newlist";
     }
 }

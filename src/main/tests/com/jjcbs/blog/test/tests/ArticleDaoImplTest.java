@@ -55,6 +55,11 @@ public class ArticleDaoImplTest extends BaseUnit{
         List res = articleDao.getNewTopList(5);
         Assert.assertEquals(5 , res.size());
     }
+    @Test
+    public void getNewListByPage(){
+        List res = articleDao.getNewListImplPage(1);
+        Assert.assertEquals(res.size() , 10);
+    }
 
 //    /**
 //     * 清除测试使用的资源
