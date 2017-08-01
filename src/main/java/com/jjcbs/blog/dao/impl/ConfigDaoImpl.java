@@ -64,4 +64,9 @@ public class ConfigDaoImpl extends BaseDaoImpl implements ConfigDaoInterface {
         }
         return blogConfigMap;
     }
+
+    public int getCount() {
+        return entityManager.createQuery("select count(*) from BlogConfig")
+                .getFirstResult();
+    }
 }

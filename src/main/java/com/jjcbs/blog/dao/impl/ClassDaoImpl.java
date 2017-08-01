@@ -17,4 +17,9 @@ public class ClassDaoImpl extends BaseDaoImpl implements ClassDaoInterface {
     public BlogClass getArticleListById(int id) {
         return entityManager.find(BlogClass.class , id);
     }
+
+    public int getCount() {
+        return entityManager.createQuery("select count(*) from BlogClass")
+                .getFirstResult();
+    }
 }

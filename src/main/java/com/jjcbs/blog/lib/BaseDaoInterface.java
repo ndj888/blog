@@ -17,5 +17,10 @@ public interface BaseDaoInterface {
     void createOrUpdate(Object entity) throws Exception;
     Object findById(Class className , int id) throws Exception;
 
+    /**
+     * 获取总记录数
+     * @return
+     */
+    int getCount();
 
 }

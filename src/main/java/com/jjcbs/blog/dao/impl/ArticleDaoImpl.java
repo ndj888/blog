@@ -47,4 +47,10 @@ public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
                 .setMaxResults(PAGE_SIZE)
                 .getResultList();
     }
+
+    @Cacheable(cacheName = "myCache")
+    public int getCount() {
+        return entityManager.createQuery("select count(*) from BlogArticle")
+                .getFirstResult();
+    }
 }

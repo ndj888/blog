@@ -33,4 +33,9 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDaoInterface {
         }
         return null;
     }
+
+    public int getCount() {
+        return entityManager.createQuery("select count(*) from BlogUser")
+                .getFirstResult();
+    }
 }
