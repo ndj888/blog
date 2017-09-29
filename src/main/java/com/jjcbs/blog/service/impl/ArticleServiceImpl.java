@@ -68,8 +68,4 @@ public class ArticleServiceImpl extends BaseService implements ArticleServiceInt
         }
         return lastAndNextInfo;
     }
-
-    public List getNewListImplPage(int curPage) {
-        return null;
-    }
 }

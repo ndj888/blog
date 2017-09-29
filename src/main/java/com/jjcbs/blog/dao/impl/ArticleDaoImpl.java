@@ -1,12 +1,14 @@
 package com.jjcbs.blog.dao.impl;
 
 import com.googlecode.ehcache.annotations.Cacheable;
+import com.jjcbs.blog.dao.entity.BlogArticle;
 import com.jjcbs.blog.dao.interfaces.ArticleDaoInterface;
 import com.jjcbs.blog.lib.BaseDaoImpl;
 import org.hibernate.jpa.QueryHints;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/6/19 0019.
@@ -39,13 +41,8 @@ public class ArticleDaoImpl extends BaseDaoImpl implements ArticleDaoInterface{
     }
 
     @Cacheable(cacheName = "myCache")
-    public List getNewListImplPage(int curPage) {
-        int t = curPage - 1 <= 0 ? 0 : curPage;
-        return entityManager.createQuery("from BlogArticle order by createTime desc ,isHot desc ")
-                .setHint(QueryHints.HINT_CACHEABLE , true)
-                .setFirstResult(t)
-                .setMaxResults(PAGE_SIZE)
-                .getResultList();
+    public Map<String, Object> getNewListImplPage(int curPage , int pageSize) {
+        return page(new BlogArticle() ,"from BlogArticle order by createTime desc ,isHot desc" , pageSize , curPage);
     }
 
     @Cacheable(cacheName = "myCache")

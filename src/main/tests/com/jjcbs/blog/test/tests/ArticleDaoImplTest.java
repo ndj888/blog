@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/6/28 0028.
@@ -57,8 +58,11 @@ public class ArticleDaoImplTest extends BaseUnit{
     }
     @Test
     public void getNewListByPage(){
-        List res = articleDao.getNewListImplPage(1);
-        Assert.assertEquals(res.size() , 10);
+        Map data  = articleDao.getNewListImplPage(1 , 10);
+        List lists = (List)data.get("list");
+        Assert.assertEquals(lists.size() , 10);
+        // has count
+        Assert.assertNotNull(data.get("count"));
     }
 
 //    /**

@@ -25,26 +25,26 @@
         </property>
     </bean>
 
-    <!--视图配置-->
-    <bean id="templateResolver"
-          class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
-        <property name="prefix" value="/WEB-INF/templates/" />
-        <property name="suffix" value=".html" />
-        <property name="templateMode" value="HTML5" />
-        <property name="characterEncoding" value="UTF-8"/>
-        <property name="cacheable" value="true"/>
-    </bean>
-    <bean id="templateEngine"
-          class="org.thymeleaf.spring4.SpringTemplateEngine">
-        <property name="templateResolver" ref="templateResolver" />
-    </bean>
+    <!--&lt;!&ndash;视图配置&ndash;&gt;-->
+    <!--<bean id="templateResolver"-->
+          <!--class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">-->
+        <!--<property name="prefix" value="/WEB-INF/templates/" />-->
+        <!--<property name="suffix" value=".html" />-->
+        <!--<property name="templateMode" value="HTML5" />-->
+        <!--<property name="characterEncoding" value="UTF-8"/>-->
+        <!--<property name="cacheable" value="true"/>-->
+    <!--</bean>-->
+    <!--<bean id="templateEngine"-->
+          <!--class="org.thymeleaf.spring4.SpringTemplateEngine">-->
+        <!--<property name="templateResolver" ref="templateResolver" />-->
+    <!--</bean>-->
 
-    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
-        <property name="templateEngine" ref="templateEngine" />
-        <property name="characterEncoding" value="UTF-8"/>
-        <property name="cache" value="true"/>
-        <property name="cacheLimit" value="1800"/>
-    </bean>
+    <!--<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">-->
+        <!--<property name="templateEngine" ref="templateEngine" />-->
+        <!--<property name="characterEncoding" value="UTF-8"/>-->
+        <!--<property name="cache" value="true"/>-->
+        <!--<property name="cacheLimit" value="1800"/>-->
+    <!--</bean>-->
 <!--cache-->
     <!--开启缓存注解-->
     <cache:annotation-driven cache-manager="cacheManager"/>
@@ -70,5 +70,5 @@
     </mvc:annotation-driven>
 
     <!--忽略静态文件-->
-    <mvc:resources location="/static/" mapping="/static/**"/>
+    <!--<mvc:resources location="/static/" mapping="/static/**"/>-->
 </beans>
